@@ -11,5 +11,8 @@ class BaseChoir(BaseModel):
         settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, blank=True, null=True
     )
 
+    def __str__(self):
+        return self.name
+
     class Meta:  # type: ignore
         abstract = True
