@@ -3,7 +3,7 @@ lint:
 	.venv/bin/mypy src/
 
 format:
-	.venv/bin/ruff format src/
+	.venv/bin/ruff format src/ tests/
 
 check: lint format
 
