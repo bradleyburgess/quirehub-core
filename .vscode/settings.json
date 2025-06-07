@@ -1,0 +1,21 @@
+{
+  // Ensure the correct interpreter is selected
+  "python.defaultInterpreterPath": ".venv/bin/python",
+
+  // Enable linting
+  "python.linting.enabled": true,
+  "python.linting.tool": "flake8",
+
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+
+  // Format and sort imports on save
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "always"
+  },
+
+  // Add src/ to the Python path so imports work
+  "python.analysis.extraPaths": ["./src"]
+}

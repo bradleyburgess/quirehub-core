@@ -1,0 +1,11 @@
+include README.md
+include LICENSE
+recursive-include src/core/ */templates *.html
+recursive-include src/core/ */static *
+recursive-include src/core/ */migrations *.py
+
+# excludes
+global-prune __pycache__
+global-exclude __pycache__/*
+global-exclude *.py[cod]
+prune tests/

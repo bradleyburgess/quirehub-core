@@ -1,0 +1,62 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools>=64"]
+
+[project]
+dependencies = [
+  "Django>=5.2",
+]
+description = "The open-core Django apps for QuireHub — the all-in-one choir management solution"
+name = "quirehub-core"
+readme = "README.md"
+requires-python = ">=3.13"
+version = "0.1.0"
+
+[project.optional-dependencies]
+dev = [
+  "django-stubs",
+  "faker",
+  "mypy",
+  "pre-commit",
+  "pytest",
+  "pytest-django",
+  "ruff",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+include = ["quirehub_core*"]
+where = ["src"]
+
+[tool.ruff]
+exclude = ["**/migrations/*.py"]
+line-length = 88
+lint.ignore = ["E203", "F403"]
+lint.select = ["E", "F", "I", "B", "UP", "SIM"]
+target-version = "py313"
+
+[tool.mypy]
+check_untyped_defs = false
+disallow_untyped_defs = false
+exclude = "^tests/"
+ignore_missing_imports = true
+mypy_path = "src"
+plugins = ["mypy_django_plugin.main"]
+python_version = "3.13"
+strict = false
+warn_unused_ignores = false
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings"
+addopts = "-ra --import-mode=importlib"
+django_find_project = false
+python_files = ["tests.py", "test_*.py", "*_tests.py"]
+pythonpath = [".", "src", "tests"]
+
+[tool.django-stubs]
+django_settings_module = "tests.settings"
