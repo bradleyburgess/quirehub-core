@@ -6,10 +6,11 @@ print(BASE_DIR)
 SECRET_KEY = "fake-key"
 DEBUG = True
 INSTALLED_APPS = [
-    "core.base",
-    "core.users",
     "django.contrib.auth",
     "django.contrib.contenttypes",
+    "core.base",
+    "core.users",
+    "core.choirs",
 ]
 DATABASES = {
     "default": {
